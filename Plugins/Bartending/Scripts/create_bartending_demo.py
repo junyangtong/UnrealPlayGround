@@ -25,7 +25,7 @@ def custom(m,code,inputs,kind=unreal.CustomMaterialOutputType.CMOT_FLOAT4):
     return a
 def mat(n,transparent=False):
     a=unreal.load_asset(ROOT+'/Materials/'+n) or TOOLS.create_asset(n,ROOT+'/Materials',unreal.Material,unreal.MaterialFactoryNew())
-    LIB.delete_all_material_expressions(a); a.set_editor_property('shading_model',unreal.MaterialShadingModel.MSM_UNLIT)
+    LIB.delete_all_material_expressions(a); a.set_editor_property('refraction_method',unreal.RefractionMode.RM_NONE); a.set_editor_property('shading_model',unreal.MaterialShadingModel.MSM_UNLIT)
     a.set_editor_property('two_sided',True); a.set_editor_property('blend_mode',unreal.BlendMode.BLEND_TRANSLUCENT if transparent else unreal.BlendMode.BLEND_OPAQUE); return a
 def rgba(m,a):
     b=node(m,unreal.MaterialExpressionComponentMask)

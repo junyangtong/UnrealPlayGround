@@ -44,6 +44,11 @@ ABartendingDemo::ABartendingDemo()
     ImportedCup->SetCollisionEnabled(ECollisionEnabled::NoCollision);
     ImportedCup->SetCastShadow(false);
     ImportedCup->SetTranslucentSortPriority(20);
+    BackCup = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BackCup"));
+    BackCup->SetupAttachment(RootComponent);
+    BackCup->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    BackCup->SetCastShadow(false);
+    BackCup->SetTranslucentSortPriority(0);
     Liquid = CreateDefaultSubobject<UProceduralMeshComponent>(TEXT("Liquid"));
     Glass = CreateDefaultSubobject<UProceduralMeshComponent>(TEXT("Glass"));
     for (auto* Mesh : {Liquid.Get(), Glass.Get()})
@@ -65,14 +70,20 @@ ABartendingDemo::ABartendingDemo()
         Mesh->SetRelativeScale3D(FVector(0.17f));
         Mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
         Mesh->SetCastShadow(false);
-        Mesh->SetTranslucentSortPriority(5);
+        Mesh->SetTranslucentSortPriority(15);
         Ice.Add(Mesh);
+        auto* Under = CreateDefaultSubobject<UStaticMeshComponent>(*FString::Printf(TEXT("SubmergedIce%d"), I));
+        Under->SetupAttachment(RootComponent);
+        Under->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        Under->SetCastShadow(false);
+        Under->SetTranslucentSortPriority(5);
+        SubmergedIce.Add(Under);
     }
     Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("DemoCamera"));
     Camera->SetupAttachment(RootComponent);
-    Camera->SetRelativeLocation(FVector(690, -1080, 600));
+    Camera->SetRelativeLocation(FVector(0, -1650, 475));
     Camera->SetRelativeRotation((FVector(0, 0, 175) - Camera->GetRelativeLocation()).Rotation());
-    Camera->FieldOfView = 38.f;
+    Camera->FieldOfView = 35.f;
     const FLinearColor Colors[] = {{0.85f,0.025f,0.08f,0.85f},{1.f,0.25f,0.025f,0.78f},
         {0.08f,0.85f,0.42f,0.75f},{0.025f,0.38f,1.f,0.75f},{0.48f,0.06f,0.85f,0.8f}};
     for (int32 I = 0; I < 5; ++I)
@@ -91,20 +102,32 @@ void ABartendingDemo::InitializeDrink(int32 Count)
     LiquidMID = LiquidMaterial ? UMaterialInstanceDynamic::Create(LiquidMaterial, this) : nullptr;
     Liquid->SetMaterial(0, LiquidMID);
     Glass->SetMaterial(0, GlassMaterial);
+    SubmergedIceMID = SubmergedIceMaterial ? UMaterialInstanceDynamic::Create(SubmergedIceMaterial,this) : nullptr;
+    IceMID = IceMaterial ? UMaterialInstanceDynamic::Create(IceMaterial,this) : nullptr;
     for (int32 I = 0; I < Ice.Num(); ++I)
-    { Ice[I]->SetMaterial(0, IceMaterial); IceZ[I] = CupBase + FMath::Max(9.f, Fill * Height - 3.f); IceVelocity[I] = 0; }
+    { Ice[I]->SetMaterial(0, IceMID); IceZ[I] = CupBase + FMath::Max(9.f, Fill * Height - 3.f); IceVelocity[I] = 0; }
     SourcePositions.Reset(); SourceTriangles.Reset(); SourceNormals.Reset(); SourceUVs.Reset();
     if (LiquidSourceMesh)
     {
         TArray<FProcMeshTangent> Tangents;
         UKismetProceduralMeshLibrary::GetSectionFromStaticMesh(LiquidSourceMesh,0,0,SourcePositions,SourceTriangles,SourceNormals,SourceUVs,Tangents);
     }
+    BackCup->SetStaticMesh(CupSourceMesh);
+    BackCup->SetMaterial(0,BackGlassMaterial);
+    BackCup->SetMaterial(1,InvisibleMaterial);
+    BackCup->SetVisibility(CupSourceMesh && BackGlassMaterial);
     ImportedCup->SetStaticMesh(CupSourceMesh);
     ImportedCup->SetMaterial(0,GlassMaterial);
     ImportedCup->SetMaterial(1,CupBaseMaterial);
     ImportedCup->SetVisibility(CupSourceMesh!=nullptr);
     Glass->SetVisibility(CupSourceMesh==nullptr);
-    if (IceSourceMesh) for (const auto& Mesh : Ice) { Mesh->SetStaticMesh(IceSourceMesh); Mesh->SetRelativeScale3D(FVector(.25f)); }
+    if (IceSourceMesh) for (const auto& Mesh : Ice) { Mesh->SetStaticMesh(IceSourceMesh); Mesh->SetRelativeScale3D(FVector(.6f)); }
+    for (const auto& Under : SubmergedIce)
+    {
+        Under->SetStaticMesh(IceSourceMesh);
+        Under->SetRelativeScale3D(FVector(.6f));
+        Under->SetMaterial(0,SubmergedIceMID);
+    }
     BuildGlass(); UpdateMaterials(); UpdateLiquidMesh(); UpdateIce(0);
 }
 void ABartendingDemo::OnConstruction(const FTransform& Transform)
@@ -189,6 +212,8 @@ float ABartendingDemo::Wave(float X, float Y) const
 }
 void ABartendingDemo::UpdateMaterials()
 {
+    if (SubmergedIceMID) SubmergedIceMID->SetScalarParameterValue(TEXT("LiquidSurface"),GetActorTransform().TransformPosition(FVector(0,0,CupBase+Fill*Height)).Z);
+    if (IceMID) IceMID->SetScalarParameterValue(TEXT("LiquidSurface"),GetActorTransform().TransformPosition(FVector(0,0,CupBase+Fill*Height)).Z);
     if (!LiquidMID) return;
     LiquidMID->SetScalarParameterValue(TEXT("LayerCount"), LiquidLayers.Num());
     LiquidMID->SetScalarParameterValue(TEXT("Fill"), Fill);
@@ -261,19 +286,21 @@ void ABartendingDemo::UpdateIce(float Dt)
     for (int32 I=0; I<Ice.Num(); ++I)
     {
         const float Angle = I*2.f*PI/5.f + (bBusy && bStirring ? Time*.7f : 0.f);
-        const float X=24.f*FMath::Cos(Angle), Y=24.f*FMath::Sin(Angle);
+        const float X=43.f*FMath::Cos(Angle), Y=43.f*FMath::Sin(Angle);
         const float Surface=CupBase+Fill*Height+Wave(X,Y);
         for (int32 S=0; S<Steps; ++S)
         {
-            // Submerged-volume approximation for a 17 cm cube. rho_ice/rho_liquid = 0.9.
-            const float Submerged=FMath::Clamp((Surface-IceZ[I]+8.5f)/17.f,0.f,1.f);
-            const float Accel=980.f*(Submerged/.9f-1.f)-IceVelocity[I]*5.f;
+            // Submerged-volume approximation for the scaled original ice mesh.
+            const float Submerged=FMath::Clamp((Surface-IceZ[I]+21.f)/42.f,0.f,1.f);
+            const float Accel=980.f*(Submerged/.78f-1.f)-IceVelocity[I]*5.f;
             IceVelocity[I]+=Accel*H; IceZ[I]+=IceVelocity[I]*H;
-            if (IceZ[I]<CupBase+8.5f) { IceZ[I]=CupBase+8.5f; IceVelocity[I]=FMath::Max(0.f,IceVelocity[I]); }
+            if (IceZ[I]<CupBase+21.f) { IceZ[I]=CupBase+21.f; IceVelocity[I]=FMath::Max(0.f,IceVelocity[I]); }
         }
         Ice[I]->SetVisibility(bShowIce);
         Ice[I]->SetRelativeLocation(FVector(X,Y,IceZ[I]));
         Ice[I]->SetRelativeRotation(FRotator(8.f*FMath::Sin(Time+I),I*37.f,6.f*FMath::Cos(Time*1.3f+I)));
+        SubmergedIce[I]->SetRelativeTransform(Ice[I]->GetRelativeTransform());
+        SubmergedIce[I]->SetVisibility(bShowIce && SubmergedIceMaterial!=nullptr);
     }
 }
 

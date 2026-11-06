@@ -39,7 +39,7 @@ def tick(dt):
             state['frames']+=1
             if now-state['at']>6 and state['frames']>90:
                 state['stage']='capture'; state['requested']=time.time(); state['at']=now
-                state['task']=unreal.AutomationLibrary.take_high_res_screenshot(1440,1080,str(output/(jobs[state['index']][1]+'.png')))
+                state['task']=unreal.AutomationLibrary.take_high_res_screenshot(1920,1080,str(output/(jobs[state['index']][1]+'.png')))
         elif stage=='capture' and (output/(jobs[state['index']][1]+'.png')).exists() and (output/(jobs[state['index']][1]+'.png')).stat().st_mtime>state['requested'] and now-state['at']>4:
             unreal.log('PUBLIC_CAPTURE_SAVED '+jobs[state['index']][1])
             state['stage']='stop'; levels.editor_request_end_play()
