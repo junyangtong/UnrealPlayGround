@@ -1,0 +1,12 @@
+* text=auto
+*.uasset binary
+*.umap binary
+*.png binary
+*.gif binary
+
+# Preserve upstream Unity reference files verbatim, including their YAML whitespace.
+Plugins/Bartending/Reference/Unity/** -text -whitespace
+*.fbx binary
+*.hdr binary
+*.exr binary
+*.jpg binary

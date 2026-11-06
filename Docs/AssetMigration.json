@@ -1,0 +1,877 @@
+[
+  {
+    "source_package": "/Game/Art/T_Concrete_BunkerTiles2KN_01_N",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Concrete_BunkerTiles2KN_01_N",
+    "class": "Texture2D",
+    "source_sha256": "8a57e05af6f975df0add1ccf6ebe37d6839b6be59567e0063ee4a0b62d29c1bc",
+    "bytes": 11574911
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Material/MIM_Props",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Environment/MIM_Props",
+    "class": "MaterialInstanceConstant",
+    "source_sha256": "0b6e9d82362f0dfa9725d400ca35ead4da470cf846a355283a38aeac61f2b8dc",
+    "bytes": 97909
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Material/MI_Cathedral_Trim_01a",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Environment/MI_Cathedral_Trim_01a",
+    "class": "MaterialInstanceConstant",
+    "source_sha256": "fa08f88b6088369a1b496bd77d4858c88f7199d6ee5edb97c3c92b3eb81c59a4",
+    "bytes": 29714
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Material/MI_Tiles_01a",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Environment/MI_Tiles_01a",
+    "class": "MaterialInstanceConstant",
+    "source_sha256": "6db742e0ce21af4ce267c79a5937da712646d502b4ed51840aa234aa92fc848d",
+    "bytes": 162840
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Material/MI_TrimConcrete_01a",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Environment/MI_TrimConcrete_01a",
+    "class": "MaterialInstanceConstant",
+    "source_sha256": "02b05faa9573689ccd3f71d4fc2914b1bd31f5f463e9ec34617d59b6eb919243",
+    "bytes": 24336
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Mesh/Architecture/Floors/SM_ArchFloor_01a",
+    "destination_package": "/Game/Demos/StainedGlass/Meshes/SM_ArchFloor_01a",
+    "class": "StaticMesh",
+    "source_sha256": "453fc15928738276d8fcd81ca5673c2745e76b809273f7dcdd551a2654526a3d",
+    "bytes": 22372
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Mesh/Architecture/Walls/SM_ArchWallWin_01a",
+    "destination_package": "/Game/Demos/StainedGlass/Meshes/SM_ArchWallWin_01a",
+    "class": "StaticMesh",
+    "source_sha256": "21367cc6fabe27b0c69c5ee9fac3c594829eba94e5ebf8b98a9dd18dfc6fcbaf",
+    "bytes": 74433
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Floor_02/T_Cathedral_Floor_02a_D_03",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Floor_02a_D_03",
+    "class": "Texture2D",
+    "source_sha256": "e1df1f57a09cacd80941b586e06c79c332eebf953649157565ce2a728a98ca9d",
+    "bytes": 27554242
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Floor_02/T_Cathedral_Floor_02a_H",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Floor_02a_H",
+    "class": "Texture2D",
+    "source_sha256": "0fa6fa7a81fe625abfefb4923096c00e2f39e14102a607cd17d22b9bf8eef119",
+    "bytes": 5342276
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Floor_02/T_Cathedral_Floor_02a_N",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Floor_02a_N",
+    "class": "Texture2D",
+    "source_sha256": "1a5c1dd321729a21ba923c2e4e2f2944d3cadac9b43dfd24b51dc54c811f9dff",
+    "bytes": 12709198
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Floor_02/T_Cathedral_Floor_02a_ORM",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Floor_02a_ORM",
+    "class": "Texture2D",
+    "source_sha256": "6af271ed8f185bdce033fa553ab503b967f63802b9d0e44abe757ddc7b9f5c45",
+    "bytes": 17861233
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Floor_02/T_Cathedral_Floor_02b_D_03",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Floor_02b_D_03",
+    "class": "Texture2D",
+    "source_sha256": "c9e36caf72edf8184cf90555e9355e12559b9800cfcfaed1ef3c99663b14de91",
+    "bytes": 28933279
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Floor_02/T_Cathedral_Floor_02b_H",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Floor_02b_H",
+    "class": "Texture2D",
+    "source_sha256": "cdee8148888c7e990235416076f9fc902f181f54f8cb0614217c08a9dc4f3cd2",
+    "bytes": 6026655
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Floor_02/T_Cathedral_Floor_02b_N",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Floor_02b_N",
+    "class": "Texture2D",
+    "source_sha256": "d69a33abe3af82f6b03cdbde7fd7e5d298f1ca60c5d2224ed4ce0e306fb3db6e",
+    "bytes": 20166731
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Floor_02/T_Cathedral_Floor_02b_ORM",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Floor_02b_ORM",
+    "class": "Texture2D",
+    "source_sha256": "1da82f54279c0d2d9ca951e55038477b46193ae7abc7f2294d24bec359eb0fdc",
+    "bytes": 21348191
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Trim/T_Cathedral_Trim_01a_D",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Trim_01a_D",
+    "class": "Texture2D",
+    "source_sha256": "5ef3731bdf357aec1a5314bce83a6ac5827d6e5903a7c35783f89b8d4db93d06",
+    "bytes": 25269851
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Trim/T_Cathedral_Trim_01a_H",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Trim_01a_H",
+    "class": "Texture2D",
+    "source_sha256": "4c9f59a1524918e63ba8986490b23b18e7e679b276702e74ecb2339cd9af253a",
+    "bytes": 4879164
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Trim/T_Cathedral_Trim_01a_N",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Trim_01a_N",
+    "class": "Texture2D",
+    "source_sha256": "b384aa0a9b750f1f908ca6eec9288b010ad47b1a80c498d630a0b513c6e82d91",
+    "bytes": 13607269
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Trim/T_Cathedral_Trim_01a_ORM",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Trim_01a_ORM",
+    "class": "Texture2D",
+    "source_sha256": "6af9c2cad3b06cbab0986f808ab56a320a7f71fd793c3e1571d927a1154542fe",
+    "bytes": 16677094
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Trim/T_Cathedral_Trim_01a_TM",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Trim_01a_TM",
+    "class": "Texture2D",
+    "source_sha256": "4dfc9fb463daa8f9a1d3f295ae8437c99c05e72eb07d490e312906bfdc42692c",
+    "bytes": 111910
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Trim/T_Cathedral_Trim_01b_D",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Trim_01b_D",
+    "class": "Texture2D",
+    "source_sha256": "114bfb235fa2ccdeb9ffc3941ea0ca2d76c81babe48d4addf668ecde646fb107",
+    "bytes": 28145043
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Trim/T_Cathedral_Trim_01b_H",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Trim_01b_H",
+    "class": "Texture2D",
+    "source_sha256": "0424399e268419d0194bff0473b0ff74fc061bd9738ede84ea93f09db815e04b",
+    "bytes": 5681133
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Trim/T_Cathedral_Trim_01b_N",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Trim_01b_N",
+    "class": "Texture2D",
+    "source_sha256": "74ec48d8f0a72447ab062499b929485ef426e784daf8b3645183e42ab42cca93",
+    "bytes": 21030984
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Cathedral_Trim/T_Cathedral_Trim_01b_ORM",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Cathedral_Trim_01b_ORM",
+    "class": "Texture2D",
+    "source_sha256": "661463059ab6861bad54e904edf7d5c142ca7c83a4c39acce2c6846c197581f4",
+    "bytes": 19705967
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_Misc/T_Grunge_Overlay",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Grunge_Overlay",
+    "class": "Texture2D",
+    "source_sha256": "3096b620a1fdab249e656d418007f3dc0269848e5cf8c676c21ffb1a0de7a5f0",
+    "bytes": 3979350
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_StainGlass/T_StainGlass_01a_D",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_StainGlass_01a_D",
+    "class": "Texture2D",
+    "source_sha256": "139bb8be19b2d6e0ad39a5f39d6976c6a8c75e825b7660ee27299a3b9cfc5e84",
+    "bytes": 5250574
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_StainGlass/T_StainGlass_01a_N",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_StainGlass_01a_N",
+    "class": "Texture2D",
+    "source_sha256": "a86bb7e8c5a052670fabea2ef8c2b65c6a2216cdfe9bfd688ea614266f527198",
+    "bytes": 2058709
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_StainGlass/T_StainGlass_01a_ORM",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_StainGlass_01a_ORM",
+    "class": "Texture2D",
+    "source_sha256": "e58438b799fff9003e76737f29aa3fc83a7e06f30ed1cc6be60c2d0c84eb45e0",
+    "bytes": 4574951
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_StainGlass/T_StainGlass_01a_TM",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_StainGlass_01a_TM",
+    "class": "Texture2D",
+    "source_sha256": "319f64b00e56fb4dbaadeae986f9efb46910a166c34042bd199fa1b50d0291ee",
+    "bytes": 260195
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_StainGlass/T_StainGlass_N_PNG",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_StainGlass_N_PNG",
+    "class": "Texture2D",
+    "source_sha256": "4788f5fdb165481a1a58ef6bf10fb07702e05eacc247d5296e6c1ff08fa33a6d",
+    "bytes": 1394520
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_StainGlass/T_Stainedglass_Decal11_PNG",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Stainedglass_Decal11_PNG",
+    "class": "Texture2D",
+    "source_sha256": "754b256fed41e2f4d78a81eb2a568769a366d2304935346f009dd6e60c168d1e",
+    "bytes": 4720086
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_TrimConcrete_02a/T_Trim_02a_D",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Trim_02a_D",
+    "class": "Texture2D",
+    "source_sha256": "4338e0af30ef18af1e48dd94a9e3827492d764b89b3a9eb499d570a4f5e7357a",
+    "bytes": 37060022
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_TrimConcrete_02a/T_Trim_02a_N",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Trim_02a_N",
+    "class": "Texture2D",
+    "source_sha256": "1deef92023a5e7bef989d10896827cd44853584ca93b669a7ae6416cb815e2b5",
+    "bytes": 40280395
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/Asset/Texture/T_TrimConcrete_02a/T_Trim_02a_ORM",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Trim_02a_ORM",
+    "class": "Texture2D",
+    "source_sha256": "d9e07b571549e6522b6f5dbf433d3df030e744bde2005f6fb5912ae9f34e03f3",
+    "bytes": 20248967
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/M_Glass/M_Glass",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Environment/M_Glass",
+    "class": "Material",
+    "source_sha256": "256e097ecefb37f48babca0bcf83ba403ef2dd344b8b45de283edbde6dde505e",
+    "bytes": 40816
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material/MI_Brick_01a_ScaleBased",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Environment/MI_Brick_01a_ScaleBased",
+    "class": "MaterialInstanceConstant",
+    "source_sha256": "8dc04528f57f4d618a5dd90686da0ee57fbe052318df6ca507f7a2d22eaae224",
+    "bytes": 24676
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material/MM_MaterMaterial",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Environment/MM_MaterMaterial",
+    "class": "Material",
+    "source_sha256": "385be12746c4b8108c4ae37adc312ee148e6b20ec8726e7d0940ad00a1c14ee4",
+    "bytes": 252960
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material_Function/MF_AODirt",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Functions/MF_AODirt",
+    "class": "MaterialFunction",
+    "source_sha256": "d51dac38131535df775d01b07508704001692f02c04dec72125196c0a921947f",
+    "bytes": 83710
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material_Function/MF_FourNormalCombine",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Functions/MF_FourNormalCombine",
+    "class": "MaterialFunction",
+    "source_sha256": "1591c455a616ef9efaa56c305ce2f1d6b16290efd347d721bc8cd6ec4d5478b2",
+    "bytes": 61621
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material_Function/MF_FuzzyMasterlayer",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Functions/MF_FuzzyMasterlayer",
+    "class": "MaterialFunction",
+    "source_sha256": "e7e4f4539db18c1a84970e7c1d03f223fe563a6f75cfb02643acfd8a0add034d",
+    "bytes": 161636
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material_Function/MF_HeightExtracted",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Functions/MF_HeightExtracted",
+    "class": "MaterialFunction",
+    "source_sha256": "a2d78f71728cadb938c7c310eb30d3830f529fc4ee91aa98ab2ea86da878b892",
+    "bytes": 112878
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material_Function/MF_MacroAlbedo",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Functions/MF_MacroAlbedo",
+    "class": "MaterialFunction",
+    "source_sha256": "83ef71651385c37ada95ae84f97b1b6b9b6d0a65d718b2c961a3f145e557c7b2",
+    "bytes": 69658
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material_Function/MF_MacroNormal",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Functions/MF_MacroNormal",
+    "class": "MaterialFunction",
+    "source_sha256": "75143d658ec4e66c9ef2675ed74ca02203a161f3545505fdab8df270097802d2",
+    "bytes": 88690
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material_Function/MF_Masterlayer",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Functions/MF_Masterlayer",
+    "class": "MaterialFunction",
+    "source_sha256": "f3b3d61b5df72401344b365b9e8b96628139aa532ef00b83fb26916b3d9ff1e6",
+    "bytes": 181365
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material_Function/MF_MatLayerBlend",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Functions/MF_MatLayerBlend",
+    "class": "MaterialFunction",
+    "source_sha256": "7c7b2da413026f0fde0e08760e5fb4a4cb01ff022e4ce632b1a1f6950a622382",
+    "bytes": 77623
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material_Function/MF_Ripple",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Functions/MF_Ripple",
+    "class": "MaterialFunction",
+    "source_sha256": "bdd1cb54029ec5ec79d76fda9be11bb8245d40e9bd740242d920a8a71007ceb1",
+    "bytes": 81610
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material_Function/MF_RippleS",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Functions/MF_RippleS",
+    "class": "MaterialFunction",
+    "source_sha256": "982916769710be9c85d8b0c8f7cd96a221a15793919e0d626e832e423cca97c1",
+    "bytes": 96537
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material_Function/MF_ScaleBaseTile",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Functions/MF_ScaleBaseTile",
+    "class": "MaterialFunction",
+    "source_sha256": "312dfdd9094e89937de43af5686348599bd5bf2928a5164759b25359ad0ef5aa",
+    "bytes": 84334
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material_Function/MF_Upvector",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Functions/MF_Upvector",
+    "class": "MaterialFunction",
+    "source_sha256": "d855994cca356c5b51cf89971dd4535d03d49e70110fb6280411774f59036769",
+    "bytes": 87129
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material_Function/MF_Vertexpaint",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Functions/MF_Vertexpaint",
+    "class": "MaterialFunction",
+    "source_sha256": "e46bcccc3cc0b65ddf78ce242af5973e514bab48c9a62e42f6efa4d7ee652dc2",
+    "bytes": 53098
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material_Function/MF_Wetness",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Functions/MF_Wetness",
+    "class": "MaterialFunction",
+    "source_sha256": "0f967eda73893b1753961c5f610eb09b99bacd1ddc685eb2cea2896685e32147",
+    "bytes": 102944
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Material_Function/MF_WorldAlignedNormal",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Functions/MF_WorldAlignedNormal",
+    "class": "MaterialFunction",
+    "source_sha256": "8f6dd82041bd50a1b8c1b2431b1cd0e057cc829702868fa47ee981f1df526283",
+    "bytes": 133052
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Texture/T_BrickWall_01/T_BrickWall_01a_D",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_BrickWall_01a_D",
+    "class": "Texture2D",
+    "source_sha256": "31c38866340a4e1e41ecdc224f281e09f7c9ec86fee0a81d0ee2545ece2e834b",
+    "bytes": 8139707
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Texture/T_BrickWall_01/T_BrickWall_01a_N",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_BrickWall_01a_N",
+    "class": "Texture2D",
+    "source_sha256": "2cb746a768f252d5eb959343af66ffbccc5342997a463b948aae3b353c64f561",
+    "bytes": 6617102
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Texture/T_BrickWall_01/T_BrickWall_01a_ORM",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_BrickWall_01a_ORM",
+    "class": "Texture2D",
+    "source_sha256": "ac5810ac0d177059b1883fa13b7beabdf6f59322d6dcd9bbd4055e6860350c15",
+    "bytes": 5334995
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Texture/T_BrickWall_01/T_BrickWall_H",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_BrickWall_H",
+    "class": "Texture2D",
+    "source_sha256": "36664289a190aa2bc780a475765604c9fa29871580139bbb61b0dc31824c2aec",
+    "bytes": 1035211
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Texture/T_Grunge/T_Grunge_02a",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Grunge_02a",
+    "class": "Texture2D",
+    "source_sha256": "6917f2ab37f68c856be1158ecd3d55027d523eedc2b256716652a7d95622fb00",
+    "bytes": 3220523
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Texture/T_Grunge/T_Grunge_03a",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Grunge_03a",
+    "class": "Texture2D",
+    "source_sha256": "23738284237ed3b2b19d20662076b3bf9a4941520c63ed1cb77459e463e4c06b",
+    "bytes": 10228150
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Texture/T_Height_H",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Height_H",
+    "class": "Texture2D",
+    "source_sha256": "cea32f9631c814f2cdc9da83e9f6065938edf6bf868d597d55f286bdab026f6e",
+    "bytes": 9315
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Texture/T_Mask_ORM",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Mask_ORM",
+    "class": "Texture2D",
+    "source_sha256": "fa1b2e7af00c08a3167eb09f3af4b690ef12195cb2a95c9864193ac9b99581fd",
+    "bytes": 4608
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Texture/T_TintMask_01_TM",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_TintMask_01_TM",
+    "class": "Texture2D",
+    "source_sha256": "7fa6f46e61ba08303b94433c7f2705f95fdccfa9a1f839625675a5a9b72c13ef",
+    "bytes": 7535
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Texture/T_TintMask_02_TM",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_TintMask_02_TM",
+    "class": "Texture2D",
+    "source_sha256": "9eebeb7ec4911338f9c098491a18226da90e8fe78bf268f3dd57c554f004c5db",
+    "bytes": 7607
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Texture/T_Water_N",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_Water_N",
+    "class": "Texture2D",
+    "source_sha256": "e7073c3187f136485f7f1f3023716a7c48d977eaaf92f8a562d9dcefe5e43a2c",
+    "bytes": 2693620
+  },
+  {
+    "source_package": "/Game/External/Gothic_Interior/Environment/MasterMaterial/Texture/T_rain_ripples",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/Environment/T_rain_ripples",
+    "class": "Texture2D",
+    "source_sha256": "e17f4b79cf443b1f4c8652873e4927f9dd7e4deb6c0fde318588ec66eaa2b54f",
+    "bytes": 271313
+  },
+  {
+    "source_package": "/Game/StainedGlass/Blueprints/BP_Glass",
+    "destination_package": "/Game/Demos/StainedGlass/Blueprints/BP_Glass",
+    "class": "Blueprint",
+    "source_sha256": "b5be8a61352c5a0916b49bb9f8ddf03d2874fc5bb614d891a0547884833d9a48",
+    "bytes": 29518
+  },
+  {
+    "source_package": "/Game/StainedGlass/Blueprints/BP_StainedGlassProjector",
+    "destination_package": "/Game/Demos/StainedGlass/Blueprints/BP_StainedGlassProjector",
+    "class": "Blueprint",
+    "source_sha256": "7d814fc398e09b140f4e4e8f2b7d442e6a567bf3121418dc6fc76538387bb703",
+    "bytes": 24485
+  },
+  {
+    "source_package": "/Game/StainedGlass/L_StainedGlass",
+    "destination_package": "/Game/Demos/StainedGlass/Maps/L_StainedGlass",
+    "class": "World",
+    "source_sha256": "32505260db53b3476105d68cd5cdc1e31b156956eb760175248e8a4311d6cb61",
+    "bytes": 77244
+  },
+  {
+    "source_package": "/Game/StainedGlass/Materials/MI_Glass",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/MI_Glass",
+    "class": "MaterialInstanceConstant",
+    "source_sha256": "b24592a1423d7fa7f9e0038dbcc2f88eac9b71162ac939426f0c41f5408e1a25",
+    "bytes": 13060
+  },
+  {
+    "source_package": "/Game/StainedGlass/Materials/MI_Proj",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/MI_Proj",
+    "class": "MaterialInstanceConstant",
+    "source_sha256": "54d0bb0de7d56e376c275751aabe9ecfb921d9596336d2d24a280a23c8c7c4fb",
+    "bytes": 8910
+  },
+  {
+    "source_package": "/Game/StainedGlass/Materials/MI_Volume",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/MI_Volume",
+    "class": "MaterialInstanceConstant",
+    "source_sha256": "5f3b5dbf9f9aad070595548ff486a91bc3eaa9f0a3717cbc522ad8214a5f83e8",
+    "bytes": 9501
+  },
+  {
+    "source_package": "/Game/StainedGlass/Materials/M_Glass",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/M_Glass",
+    "class": "Material",
+    "source_sha256": "8d1eaeff02550a1aa1aa9fb491386e7067ee6332d22218fca1af1ffc98c69e16",
+    "bytes": 20368
+  },
+  {
+    "source_package": "/Game/StainedGlass/Materials/M_Proj",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/M_Proj",
+    "class": "Material",
+    "source_sha256": "356c3d95bdbc6ba2415322e9baa6ad46f4e326ebaa9dd00cb903a6673bcc1c23",
+    "bytes": 27610
+  },
+  {
+    "source_package": "/Game/StainedGlass/Materials/M_Volume",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/M_Volume",
+    "class": "Material",
+    "source_sha256": "9af5fb54057e5d439b1a47b6b71b35d71c12d4da74656e1494d356d852ac1c72",
+    "bytes": 26735
+  },
+  {
+    "source_package": "/Game/StainedGlass/Materials/Toon",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Toon",
+    "class": "Material",
+    "source_sha256": "789cbafc649475de78e05673d7a92c13fd6561a1d36e5d95896488e253772568",
+    "bytes": 14435
+  },
+  {
+    "source_package": "/Game/StainedGlass/Materials/Toon_Inst",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/Toon_Inst",
+    "class": "MaterialInstanceConstant",
+    "source_sha256": "ce18b9b89517099e3bb4d2afc70153b8b2fbc9a80066d6670b4e5186f95187ea",
+    "bytes": 14676
+  },
+  {
+    "source_package": "/Game/StainedGlass/Mesh/MI_StainedGlass",
+    "destination_package": "/Game/Demos/StainedGlass/Materials/MI_StainedGlass",
+    "class": "MaterialInstanceConstant",
+    "source_sha256": "bee0a4089ebb75b0e03639450ef58b11f7d73393bbb7178904a31a5874e2b98b",
+    "bytes": 18677
+  },
+  {
+    "source_package": "/Game/StainedGlass/Mesh/StainedGlass",
+    "destination_package": "/Game/Demos/StainedGlass/Meshes/StainedGlass",
+    "class": "StaticMesh",
+    "source_sha256": "ced21e91e935c8f838bb8f787b44e47d66b56c64d5700c72bed95d5471e33228",
+    "bytes": 68316
+  },
+  {
+    "source_package": "/Game/StainedGlass/Mesh/T_StainGlass_D",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/T_StainGlass_D",
+    "class": "Texture2D",
+    "source_sha256": "cf031890610089ca1b2ef8de39b80306223a66ff281aa43c3d1763278ea6847f",
+    "bytes": 2324009
+  },
+  {
+    "source_package": "/Game/StainedGlass/Mesh/T_StainGlass_ORM",
+    "destination_package": "/Game/Demos/StainedGlass/Textures/T_StainGlass_ORM",
+    "class": "Texture2D",
+    "source_sha256": "d92ef3d275fb9c640fa3f81c77480bc981e01b91f2300bbc95e3455e68d2882d",
+    "bytes": 2048303
+  },
+  {
+    "source_package": "/Game/WFC/Tiles",
+    "destination_package": "/Game/Demos/WFC/Textures/Tiles",
+    "class": "Texture2D",
+    "source_sha256": "1724580778741213bf1b989fd530d83dcfbd1734019eadd67d11218460c610e0",
+    "bytes": 63233
+  },
+  {
+    "source_package": "/Game/GrassInteractionDemo/L_GrassInteraction",
+    "destination_package": "/Game/Demos/Grass/Maps/L_GrassInteraction",
+    "class": "World",
+    "source_sha256": "1cdfb71b86ddc2eb8275eb4d4095b2a5f07eb24e0be5641daedd6930b3f1b721",
+    "bytes": 51766140
+  },
+  {
+    "source_package": "/Game/GrassInteractionDemo/M_Grass",
+    "destination_package": "/Game/Demos/Grass/Materials/M_Grass",
+    "class": "Material",
+    "source_sha256": "ec76d5d8cb23d950862bcb38246ba6b7be45775c86211d9d45b7c0eadf196fa9",
+    "bytes": 8485
+  },
+  {
+    "source_package": "/Game/GrassInteractionDemo/M_Ground",
+    "destination_package": "/Game/Demos/Grass/Materials/M_Ground",
+    "class": "Material",
+    "source_sha256": "fe57a23f4d43a73a546d4bcae77739549da00c887177b1d367fc692787373cb1",
+    "bytes": 4837
+  },
+  {
+    "source_package": "/Game/GrassInteractionDemo/M_StateDebug",
+    "destination_package": "/Game/Demos/Grass/Materials/M_StateDebug",
+    "class": "Material",
+    "source_sha256": "b203cbf3c5ac63ba1ac6a62cc16a4eaa9e10aad41900e022dd4172b83b976736",
+    "bytes": 7898
+  },
+  {
+    "source_package": "/Game/WFC/Town/L_TownPrototype",
+    "destination_package": "/Game/Demos/WFC/Town/L_TownPrototype",
+    "class": "World",
+    "source_sha256": "2cff93065d665a7726e366e32d7f21a5bdacd2d95af356f265d801cee9e39ba8",
+    "bytes": 2736192
+  },
+  {
+    "source_package": "/Game/WFC/Town/M_TownVertexColor",
+    "destination_package": "/Game/Demos/WFC/Town/M_TownVertexColor",
+    "class": "Material",
+    "source_sha256": "e0157f688ac91b1030d5cff0ad65f1402e300204682df475799fd43a5e2db9ec",
+    "bytes": 12008
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_0_0",
+    "destination_package": "/Game/Demos/WFC/Textures/Tile_0_0",
+    "class": "Texture2D",
+    "source_sha256": "55abefff383d93061d7ebf4069e2e6f09432e1f0da01cde148ff5ba3757a3442",
+    "bytes": 4223
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_0_1",
+    "destination_package": "/Game/Demos/WFC/Textures/Tile_0_1",
+    "class": "Texture2D",
+    "source_sha256": "3536c4d8a6121b370557f1edc98a8f22c8687ef8368d832534e757cd619f40ab",
+    "bytes": 7206
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_0_2",
+    "destination_package": "/Game/Demos/WFC/Textures/Tile_0_2",
+    "class": "Texture2D",
+    "source_sha256": "bdd621cd2b004af8d6b55d53ae485c3f0aaa07e0a77dedad0e40fd12d5576755",
+    "bytes": 4899
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_0_3",
+    "destination_package": "/Game/Demos/WFC/Textures/Tile_0_3",
+    "class": "Texture2D",
+    "source_sha256": "4517d415a43813c942061b4dafee4cda4ba8a8c46585ca8e553cf2497868c3ec",
+    "bytes": 4136
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_1_0",
+    "destination_package": "/Game/Demos/WFC/Textures/Tile_1_0",
+    "class": "Texture2D",
+    "source_sha256": "0050330ff66f270e93d4e94e1a33ad0b001d83c9b483362c9c2176b1cfb3244e",
+    "bytes": 4151
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_1_1",
+    "destination_package": "/Game/Demos/WFC/Textures/Tile_1_1",
+    "class": "Texture2D",
+    "source_sha256": "eea985206e74389bb6cfb3de4f1fbb0d22e105a1d5424fe8c5eb80eb5f14a83b",
+    "bytes": 4136
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_1_2",
+    "destination_package": "/Game/Demos/WFC/Textures/Tile_1_2",
+    "class": "Texture2D",
+    "source_sha256": "cfa32439a9a55d78850a04f32bae35a08f9f9e675b7de0ee509ed5645dd7e4d7",
+    "bytes": 4700
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_1_3",
+    "destination_package": "/Game/Demos/WFC/Textures/Tile_1_3",
+    "class": "Texture2D",
+    "source_sha256": "b07b03ab4b7d64d9f45fe69c63b32be3e25783a45f0423dcd6563ff7a2146fbb",
+    "bytes": 12867
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_2_0",
+    "destination_package": "/Game/Demos/WFC/Textures/Tile_2_0",
+    "class": "Texture2D",
+    "source_sha256": "2c588499dbbd0393369762d3ab1331ee6e99eb8853457db5db2c7421cfc4a7c9",
+    "bytes": 5818
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_2_1",
+    "destination_package": "/Game/Demos/WFC/Textures/Tile_2_1",
+    "class": "Texture2D",
+    "source_sha256": "bdc8e410680f3b8ea30ff4f4fc0c1b0ab5372e221868cafbd5caebfacf0dc7d2",
+    "bytes": 5979
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_2_2",
+    "destination_package": "/Game/Demos/WFC/Textures/Tile_2_2",
+    "class": "Texture2D",
+    "source_sha256": "4d544d2a7edd4edb55958db32b388a955ae0986becc58b7d16e69f8597984104",
+    "bytes": 8318
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_2_3",
+    "destination_package": "/Game/Demos/WFC/Textures/Tile_2_3",
+    "class": "Texture2D",
+    "source_sha256": "16a2ad4777dc753ed451f472aadd3a5af9877456b242a9363ff1969e05f9c645",
+    "bytes": 7298
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_3_0",
+    "destination_package": "/Game/Demos/WFC/Textures/Tile_3_0",
+    "class": "Texture2D",
+    "source_sha256": "e49782a10fe0990935125ae78d4dae9c2211c6463bba6d02ab5c6ec450835eef",
+    "bytes": 8732
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_3_1",
+    "destination_package": "/Game/Demos/WFC/Textures/Tile_3_1",
+    "class": "Texture2D",
+    "source_sha256": "5ee402c10841f1c0bdfcf852ad61208412ab7d5e4b7c3c2e189a64b026428f24",
+    "bytes": 7396
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_3_2",
+    "destination_package": "/Game/Demos/WFC/Textures/Tile_3_2",
+    "class": "Texture2D",
+    "source_sha256": "5f1dc4a64f29d588df2cc79e0fc58ac493486100bacac4adfa8cd796840438b4",
+    "bytes": 9287
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_3_3",
+    "destination_package": "/Game/Demos/WFC/Textures/Tile_3_3",
+    "class": "Texture2D",
+    "source_sha256": "caa7b20b4e9086ed9ac057761cdae51e6c957713c14e45a37bc21c3685da2bfd",
+    "bytes": 10781
+  },
+  {
+    "source_package": "/Game/WFC/Tiles/Tile_TileSet",
+    "destination_package": "/Game/Demos/WFC/Data/Tile_TileSet",
+    "class": "WFCTileSet",
+    "source_sha256": "833b91d06165920fb653df5d26dfff4c0ad3ff549fbca4d322a68878b201bb09",
+    "bytes": 11882
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/Models/SM_Square_01",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/Models/SM_Square_01",
+    "class": "StaticMesh",
+    "source_sha256": "7601482dab2c5a8cfbd12a38416a0933b98f15741c099a00c8fc381784604cc4",
+    "bytes": 11766
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/Models/SM_Square_02",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/Models/SM_Square_02",
+    "class": "StaticMesh",
+    "source_sha256": "92dd1b8b5a3c21477ea4394dce0e1972e3b2277dc131feebb579008c90178d31",
+    "bytes": 11780
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/Models/SM_Square_03",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/Models/SM_Square_03",
+    "class": "StaticMesh",
+    "source_sha256": "98517df708c100a835b9f6ac4f0bab4832066f7efbf1c3dc7f9a41d2180449cc",
+    "bytes": 11881
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/Models/SM_Square_04",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/Models/SM_Square_04",
+    "class": "StaticMesh",
+    "source_sha256": "d4ebe680ab08bc2d1a5c4a6e28b3df75ed0f6ff405c47095fdc07ad544ec586c",
+    "bytes": 11780
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/Models/SM_Square_05",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/Models/SM_Square_05",
+    "class": "StaticMesh",
+    "source_sha256": "a32b5c4864fd3cf6ebf35b0ef814d15d851288665fac617055b35f0dc7618c06",
+    "bytes": 11974
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/Models/SM_Square_06",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/Models/SM_Square_06",
+    "class": "StaticMesh",
+    "source_sha256": "80ebed4402bf43dbb2b7df259991f7db68e9613936cbf4103c3324f05ef3c5cb",
+    "bytes": 11903
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/Models/SM_Square_07",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/Models/SM_Square_07",
+    "class": "StaticMesh",
+    "source_sha256": "6454a9892cd8ca55a88817eeb63991143e1b39eba9e3a9defff1ee89c905f594",
+    "bytes": 11991
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/Models/SM_Square_08",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/Models/SM_Square_08",
+    "class": "StaticMesh",
+    "source_sha256": "8441e047cfc61ca8f5c0338c0a5b8154be399f0cb0ba1d3f5728fa3d2be671e7",
+    "bytes": 11769
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/Models/SM_Square_09",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/Models/SM_Square_09",
+    "class": "StaticMesh",
+    "source_sha256": "38fb59f2b27ee7e733684ba249d1cb65aab272dd1dfba6dd7ad5f38ebb9ace90",
+    "bytes": 11877
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/Models/SM_Square_10",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/Models/SM_Square_10",
+    "class": "StaticMesh",
+    "source_sha256": "566526fcb02ff432b269cef64250ee9bcd7cd813e29ae49275cb5acb1193ec4a",
+    "bytes": 12010
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/Models/SM_Square_11",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/Models/SM_Square_11",
+    "class": "StaticMesh",
+    "source_sha256": "56488f4172846133fbc023bdf6565046a75e59c4f629b7e95c360aeff0bfb2ed",
+    "bytes": 11970
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/Models/SM_Square_12",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/Models/SM_Square_12",
+    "class": "StaticMesh",
+    "source_sha256": "46384741c2ae53dadafeb7a4764167a961630ea0f8ef0efed0f85d1252e682eb",
+    "bytes": 11889
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/Models/SM_Square_13",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/Models/SM_Square_13",
+    "class": "StaticMesh",
+    "source_sha256": "19802b047d5d5bab1a2b919b131ea128567abdc852f99c2f273bbdfff2d5a0ef",
+    "bytes": 11973
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/Models/SM_Square_14",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/Models/SM_Square_14",
+    "class": "StaticMesh",
+    "source_sha256": "e48c8d4f2023970926e48bf5706f63d47a6a57989c9ac3cc098bee7977788fc5",
+    "bytes": 12001
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/Models/SM_Square_15",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/Models/SM_Square_15",
+    "class": "StaticMesh",
+    "source_sha256": "32c48f4fa86bef1a65b85754655c7245ebd5498cabe76cf91c8f63892ac4981e",
+    "bytes": 11859
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/DA_SquareSamples",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/DA_SquareSamples",
+    "class": "WFCSquareModuleSet",
+    "source_sha256": "b59db0984edc1a555d22054c47cf7bdddc1d202c51a8f48382d2373e18a78212",
+    "bytes": 3448
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/L_MarchingSquares",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/L_MarchingSquares",
+    "class": "World",
+    "source_sha256": "5a724184d9661956b0fa3993a95f21d6c8b7dfcfa3a57df936ad72018cd6f731",
+    "bytes": 4004184
+  },
+  {
+    "source_package": "/Game/WFC/MarchingSquares/L_SquareModelGallery",
+    "destination_package": "/Game/Demos/WFC/MarchingSquares/L_SquareModelGallery",
+    "class": "World",
+    "source_sha256": "b8f69d24a7c821b564704675391c75470010142feaa2ce1a06cecc67a208c213",
+    "bytes": 67578
+  },
+  {
+    "source_package": "/Game/WFC/M_PBR_Base",
+    "destination_package": "/Game/Demos/WFC/Materials/M_PBR_Base",
+    "class": "Material",
+    "source_sha256": "708a01f380c0a8d8c875746b78883183ede664ceb464e555ae346af6add673e6",
+    "bytes": 14001
+  },
+  {
+    "source_package": "/Game/WFC/v2-9942a41896030fbee3572079f2ba2db8_1440w",
+    "destination_package": "/Game/Demos/WFC/Textures/v2-9942a41896030fbee3572079f2ba2db8_1440w",
+    "class": "Texture2D",
+    "source_sha256": "7bd96b7ea0ea3820aa602cf1117c744c34fed842a45a5c221caf6080ca0ea788",
+    "bytes": 13031
+  },
+  {
+    "source_package": "/Game/WFC/WFC_Demo",
+    "destination_package": "/Game/Demos/WFC/Maps/L_WFC",
+    "class": "World",
+    "source_sha256": "80c24bf07d66356ec7b23ed33f452e65c6e46a08b7e212551e713e3084b0b16a",
+    "bytes": 550177
+  },
+  {
+    "source_package": "/Game/WFC/WFC_Gen_BP",
+    "destination_package": "/Game/Demos/WFC/Blueprints/WFC_Gen_BP",
+    "class": "Blueprint",
+    "source_sha256": "bcf3a47bd9943dd0708624fe1c4b303e55cfcb4f08ec2455d7eac82cf820c3e9",
+    "bytes": 22404
+  }
+]

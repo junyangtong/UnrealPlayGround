@@ -1,0 +1,12 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "Minimal Grass Interaction",
+  "Description": "Two render targets, one spring shader, one demo actor.",
+  "Category": "Rendering",
+  "EnabledByDefault": true,
+  "CanContainContent": false,
+  "Modules": [{ "Name": "GrassInteraction", "Type": "Runtime", "LoadingPhase": "PostConfigInit" }],
+  "Plugins": [{ "Name": "ProceduralMeshComponent", "Enabled": true }]
+}

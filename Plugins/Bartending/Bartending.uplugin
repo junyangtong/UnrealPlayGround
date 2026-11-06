@@ -1,0 +1,13 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "Layered Cocktail",
+  "Description": "Layered liquid, pouring, stirring and floating ice demo.",
+  "Category": "Rendering",
+  "CreatedBy": "TJY",
+  "EnabledByDefault": true,
+  "CanContainContent": false,
+  "Modules": [{"Name": "Bartending", "Type": "Runtime", "LoadingPhase": "Default"}],
+  "Plugins": [{"Name": "ProceduralMeshComponent", "Enabled": true}]
+}

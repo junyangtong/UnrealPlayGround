@@ -1,0 +1,74 @@
+#ifndef UNIVERSAL_GLASS_INCLUDED
+#define UNIVERSAL_GLASS_INCLUDED
+
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareOpaqueTexture.hlsl"
+
+// MatcapUV
+float2 GetMatcapUV(float3 normalWS)
+{
+    float3 normalVS = mul((float3x3)UNITY_MATRIX_V, normalWS);
+    return normalVS.xy * 0.5 + 0.5;
+}
+
+half4 GlassFragment(InputData inputData, SurfaceData surfaceData)
+{
+    // PBR
+    BRDFData brdfData;
+    InitializeBRDFData(surfaceData, brdfData);
+    
+    #if defined(DEBUG_DISPLAY)
+    half4 debugColor;
+    if (CanDebugOverrideOutputColor(inputData, surfaceData, debugColor))
+    {
+        return debugColor;
+    }
+    #endif
+
+    AmbientOcclusionFactor aoFactor = CreateAmbientOcclusionFactor(inputData, surfaceData);
+    
+    half4 shadowMask = CalculateShadowMask(inputData);
+    uint meshRenderingLayers = GetMeshRenderingLayer();
+    
+    Light mainLight = GetMainLight(inputData, shadowMask, aoFactor);
+
+    LightingData lightingData = CreateLightingData(inputData, surfaceData);
+    
+
+    // Glass
+    // 菲涅尔
+    half nDotV = dot(inputData.normalWS, inputData.viewDirectionWS);
+    half fresnel = pow(1.0 - saturate(nDotV), _FresnelIntensity + 0.0001);
+    
+    // 折射效果计算
+    float2 screenUV = inputData.normalizedScreenSpaceUV;
+    float3 normalVS = mul((float3x3)UNITY_MATRIX_V, inputData.normalWS);
+    float2 distortion = normalVS.xy;
+
+    // 计算厚度
+    float thickness = 1 - smoothstep(0.0, _Thinkness, nDotV);
+
+    // 折射
+    float2 refractionUV = screenUV + distortion * _RefractIntensity * thickness;
+    half3 sceneColor = SAMPLE_TEXTURE2D(_LiquidFinalTexture, sampler_LiquidFinalTexture, refractionUV).rgb;
+    half3 refractionColor = surfaceData.albedo * sceneColor;
+   
+    // 反射
+    float3 reflectVector = reflect(-inputData.viewDirectionWS, inputData.normalWS);
+    half4 encodedEnv = half4(SAMPLE_TEXTURECUBE_LOD(unity_SpecCube0, samplerunity_SpecCube0, reflectVector, 6.0 - _Smoothness*6.0));
+    half3 reflectColor = DecodeHDREnvironment(encodedEnv, unity_SpecCube0_HDR);
+
+    surfaceData.albedo = lerp(refractionColor, reflectColor, fresnel);
+
+    float2 matcapUV = GetMatcapUV(inputData.normalWS);
+    half4 matcapColor = SAMPLE_TEXTURE2D(_MatCapTex, sampler_MatCapTex, matcapUV);
+    
+    half4 finalColor = half4(0,0,0,0);
+    finalColor.rgb = surfaceData.albedo + matcapColor.rgb * fresnel;
+    
+    finalColor.a = surfaceData.alpha;
+    
+    return finalColor;
+}
+
+#endif // UNIVERSAL_GLASS_INCLUDED

@@ -1,0 +1,18 @@
+{
+  "engine": "5.6",
+  "target": "UnrealPlayGroundEditor Win64 Development",
+  "tests_passed": 6,
+  "tests_failed": 0,
+  "tests_with_warnings": 0,
+  "asset_count": 159,
+  "maps": [
+    "/Game/Demos/Bartending/Maps/L_Bartending",
+    "/Game/Demos/Grass/Maps/L_GrassInteraction",
+    "/Game/Demos/StainedGlass/Maps/L_StainedGlass",
+    "/Game/Demos/WFC/Maps/L_WFC",
+    "/Game/Demos/WFC/MarchingSquares/L_MarchingSquares",
+    "/Game/Demos/WFC/MarchingSquares/L_SquareModelGallery",
+    "/Game/Demos/WFC/Town/L_TownPrototype"
+  ],
+  "invalid_dependencies": []
+}

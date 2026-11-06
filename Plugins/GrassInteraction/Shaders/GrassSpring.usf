@@ -1,0 +1,37 @@
+#include "/Engine/Public/Platform.ush"
+
+Texture2D<float4> PreviousState;
+RWTexture2D<float4> NextState;
+uint Resolution;
+float DeltaTime;
+float Stiffness;
+float Damping;
+float ForceStrength;
+float FieldSize;
+float2 BrushPosition;
+float BrushRadius;
+
+[numthreads(8, 8, 1)]
+void MainCS(uint3 ID : SV_DispatchThreadID)
+{
+    if (any(ID.xy >= Resolution)) return;
+
+    // Both RTs use the SAME layout: RG = displacement (cm), BA = velocity (cm/s).
+    float4 state = PreviousState.Load(int3(ID.xy, 0));
+    float2 x = state.rg;
+    float2 v = state.ba;
+
+    float2 position = ((float2(ID.xy) + 0.5) / Resolution - 0.5) * FieldSize;
+    float2 delta = position - BrushPosition;
+    float distance = length(delta);
+    float falloff = saturate(1.0 - distance / BrushRadius);
+    float2 force = delta / max(distance, 0.01) * falloff * ForceStrength;
+
+    // Mass = 1. Semi-implicit Euler: update velocity BEFORE position.
+    // The restoring force needs x; keeping only force + velocity is insufficient.
+    float2 acceleration = force - Stiffness * x - Damping * v;
+    v += acceleration * DeltaTime;
+    x += v * DeltaTime;
+
+    NextState[ID.xy] = float4(x, v);
+}

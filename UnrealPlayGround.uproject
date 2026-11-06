@@ -1,0 +1,53 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "5.6",
+  "Category": "Rendering",
+  "Description": "Standalone rendering and procedural generation demos",
+  "Modules": [
+    {
+      "Name": "UnrealPlayGround",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "Bartending",
+      "Enabled": true
+    },
+    {
+      "Name": "StainedGlass",
+      "Enabled": true
+    },
+    {
+      "Name": "GrassInteraction",
+      "Enabled": true
+    },
+    {
+      "Name": "WFC",
+      "Enabled": true
+    },
+    {
+      "Name": "ProceduralMeshComponent",
+      "Enabled": true
+    },
+    {
+      "Name": "PythonScriptPlugin",
+      "Enabled": true,
+      "TargetAllowList": [
+        "Editor"
+      ]
+    },
+    {
+      "Name": "EditorScriptingUtilities",
+      "Enabled": true,
+      "TargetAllowList": [
+        "Editor"
+      ]
+    },
+    {
+      "Name": "AndroidFileServer",
+      "Enabled": false
+    }
+  ]
+}

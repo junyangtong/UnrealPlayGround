@@ -1,0 +1,26 @@
+// Original FBX UV0 for art; UV1.x stores normalized local liquid height.
+float4 colors[5]={Color0,Color1,Color2,Color3,Color4};
+float4 details[5]={Detail0,Detail1,Detail2,Detail3,Detail4};
+float2 uv=UV+float2(Swirl,0);
+float masks[5]={Texture2DSample(Mask0,Mask0Sampler,uv*10).r,Texture2DSample(Mask1,Mask1Sampler,uv*10).r,Texture2DSample(Mask2,Mask2Sampler,uv*10).r,Texture2DSample(Mask3,Mask3Sampler,uv*10).r,Texture2DSample(Mask4,Mask4Sampler,uv*10).r};
+float4 weights[5]={Weight0,Weight1,Weight2,Weight3,Weight4};
+float tails[5]={Tail0,Tail1,Tail2,Tail3,Tail4};
+float mixed[5];
+for(int j=0;j<5;j++) mixed[j]=dot(weights[j],float4(masks[0],masks[1],masks[2],masks[3]))+tails[j]*masks[4];
+float h=HeightUV.x*5-.5;
+int lo=clamp((int)floor(h),0,clamp((int)LayerCount-1,0,4));
+int hi=min(lo+1,clamp((int)LayerCount-1,0,4));
+float t=smoothstep(hi-details[hi].x,hi+max(.01,details[hi].x),h);
+float noise=Texture2DSample(NoiseTex,NoiseTexSampler,uv*details[hi].w).r;
+t=saturate(t+(noise-.5)*details[hi].z*(1-abs(t-.5)*2));
+float4 col=lerp(colors[lo],colors[hi],t);
+float mask=lerp(mixed[lo],mixed[hi],t);
+float bubbles=lerp(details[lo].y,details[hi].y,t);
+float rim=pow(saturate(abs(dot(normalize(Normal),normalize(View)))),3);
+float2 bubbleUV=uv*float2(1,2)+float2(0,Clock/20*-.91);
+float bubble=Texture2DSample(BubbleTex,BubbleTexSampler,bubbleUV+View.xy*.17).r+Texture2DSample(BubbleTex,BubbleTexSampler,bubbleUV+View.xy*.3).r;
+float waterline=1-smoothstep(0,.076/2.9,abs(HeightUV.x-Fill));
+float3 rgb=col.rgb*(1+mask*rim+bubble*bubbles*rim);
+float3 env=TextureCubeSample(Environment,EnvironmentSampler,reflect(-normalize(View),normalize(Normal))).rgb;
+rgb=lerp(rgb,col.rgb*.65+env*.35,saturate(HeightUV.y));
+return float4(rgb,saturate(col.a+waterline*.3+mask));

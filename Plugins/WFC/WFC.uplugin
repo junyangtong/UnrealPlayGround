@@ -1,0 +1,25 @@
+{
+    "FileVersion": 3,
+    "Version": 1,
+    "VersionName": "1.0",
+    "FriendlyName": "2D Wave Function Collapse",
+    "Description": "2D WFC tile-based procedural generation",
+    "Category": "Procedural Generation",
+    "CreatedBy": "TJY",
+    "Plugins": [
+        { "Name": "ProceduralMeshComponent", "Enabled": true },
+        { "Name": "EditorScriptingUtilities", "Enabled": true, "TargetAllowList": ["Editor"] }
+    ],
+    "Modules": [
+        {
+            "Name": "WFCRuntime",
+            "Type": "Runtime",
+            "LoadingPhase": "Default"
+        },
+        {
+            "Name": "WFCEditor",
+            "Type": "Editor",
+            "LoadingPhase": "PostEngineInit"
+        }
+    ]
+}
