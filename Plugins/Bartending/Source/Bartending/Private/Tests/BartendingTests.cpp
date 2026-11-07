@@ -57,8 +57,8 @@ bool FOriginalCocktailMeshTest::RunTest(const FString& Parameters)
     {
         for (const auto& Vertex:Section->ProcVertexBuffer)
         {
-            if (Vertex.Position.Z>88.01f || !FMath::IsFinite(Vertex.Position.Z))
-            { AddError(TEXT("Clipped vertex exceeds one-fifth fill level")); break; }
+            if (Vertex.Position.Z>90.51f || !FMath::IsFinite(Vertex.Position.Z))
+            { AddError(TEXT("Clipped vertex exceeds the raised contact-line height")); break; }
         }
         TestTrue(TEXT("Cap and side preserve original curved topology"),Section->ProcVertexBuffer.Num()>100);
     }

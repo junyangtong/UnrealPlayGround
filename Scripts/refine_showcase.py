@@ -51,7 +51,7 @@ prop(custom(bar,'return Texture2DSample(Bar,BarSampler,float2(UV.x,clamp(1-UV.y+
 levels.load_level(ROOT+'/Maps/L_Bartending')
 demo=next(a for a in actors.get_all_level_actors() if isinstance(a,unreal.BartendingDemo))
 # Reference presentation: pale citrus layers transitioning into a cyan top.
-colors=[(.40,.54,.09,.96),(.44,.57,.12,.96),(.45,.59,.17,.95),(.25,.55,.47,.94),(.28,.64,.68,.94)]
+colors=[(.012,.02,.40,.97),(.018,.035,.60,.97),(.025,.05,.72,.96),(.15,.04,.43,.96),(.78,.14,.30,.96)]
 presets=list(demo.get_editor_property('presets'))
 for p,col in zip(presets,colors):
     p.set_editor_property('color',unreal.LinearColor(*col)); p.set_editor_property('blend_range',.48); p.set_editor_property('bubbles',1.54); p.set_editor_property('warp',.1); p.set_editor_property('mask',None)

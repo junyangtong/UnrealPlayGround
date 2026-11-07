@@ -292,7 +292,7 @@ void ABartendingDemo::UpdateIce(float Dt)
         {
             // Submerged-volume approximation for the scaled original ice mesh.
             const float Submerged=FMath::Clamp((Surface-IceZ[I]+21.f)/42.f,0.f,1.f);
-            const float Accel=980.f*(Submerged/.78f-1.f)-IceVelocity[I]*5.f;
+            const float Accel=980.f*(Submerged/.55f-1.f)-IceVelocity[I]*5.f;
             IceVelocity[I]+=Accel*H; IceZ[I]+=IceVelocity[I]*H;
             if (IceZ[I]<CupBase+21.f) { IceZ[I]=CupBase+21.f; IceVelocity[I]=FMath::Max(0.f,IceVelocity[I]); }
         }
@@ -320,7 +320,7 @@ void ABartendingDemo::UpdateOriginalLiquidMesh()
         {
             const int32 Index=SourceTriangles[I+K];
             const FVector P0=SourcePositions[Index];
-            Polygon.Add({P0,SourceNormals[Index],SourceUVs[Index],Level+Wave(P0.X,P0.Y)-P0.Z});
+            Polygon.Add({P0,SourceNormals[Index],SourceUVs[Index],Level+2.5f+Wave(P0.X,P0.Y)-P0.Z});
         }
         TArray<FClipVertex,TInlineAllocator<4>> Clipped;
         for (int32 K=0; K<3; ++K)
@@ -341,13 +341,32 @@ void ABartendingDemo::UpdateOriginalLiquidMesh()
         for (int32 K=1;K+1<Clipped.Num();++K) M.T.Append({First,First+K,First+K+1});
     }
     Rim.Sort([](const FVector& A,const FVector& B){return FMath::Atan2(A.Y,A.X)<FMath::Atan2(B.Y,B.X);});
-    const int32 Center=M.P.Num();
-    M.Vertex(FVector(0,0,CupBase+Level+Wave(0,0)),FVector::UpVector,FVector2D(.5,.5));
-    for (const FVector& P0:Rim) M.Vertex(P0+FVector(0,0,CupBase),FVector::UpVector,FVector2D(P0.X*.01f,P0.Y*.01f));
-    for (int32 I=0;I<Rim.Num();++I)
+    TArray<FVector> Contour;
+    for (const FVector& P0:Rim)
+        if (Contour.IsEmpty() || !Contour.Last().Equals(P0,.02f)) Contour.Add(P0);
+    if (Contour.Num()>2 && Contour[0].Equals(Contour.Last(),.02f)) Contour.Pop();
+    // Radial rings resolve the curved contact region instead of a flat triangle fan.
+    constexpr int32 Rings=20;
+    const int32 Start=M.P.Num(), Count=Contour.Num();
+    for (int32 Ring=0;Ring<=Rings;++Ring)
+    for (const FVector& Edge:Contour)
     {
-        const int32 Next=(I+1)%Rim.Num();
-        if (!Rim[I].Equals(Rim[Next],.01f)) M.T.Append({Center,Center+1+Next,Center+1+I});
+        const float R=Ring/float(Rings);
+        const float X=Edge.X*R,Y=Edge.Y*R;
+        const float Lift=2.5f*FMath::Pow(R,12.f);
+        const float RadiusHere=FMath::Max(1.f,FVector2D(Edge.X,Edge.Y).Size());
+        const float Slope=30.f/RadiusHere*FMath::Pow(R,11.f);
+        const FVector N=FVector(-(Wave(X+.1f,Y)-Wave(X-.1f,Y))/.2f-Slope*Edge.X/RadiusHere,
+            -(Wave(X,Y+.1f)-Wave(X,Y-.1f))/.2f-Slope*Edge.Y/RadiusHere,1).GetSafeNormal();
+        M.Vertex(FVector(X,Y,CupBase+Level+Wave(X,Y)+Lift),N,FVector2D(X/190.f+.5f,Y/190.f+.5f));
+        M.HeightUV.Last().Y=1.f;
+    }
+    for (int32 Ring=0;Ring<Rings;++Ring)
+    for (int32 I=0;I<Count;++I)
+    {
+        const int32 J=(I+1)%Count,A=Start+Ring*Count+I,B=Start+(Ring+1)*Count+I;
+        // Match the winding of the original procedural top: outward/upward-facing triangles.
+        M.T.Append({A,B,Start+(Ring+1)*Count+J,A,Start+(Ring+1)*Count+J,Start+Ring*Count+J});
     }
     // Clipping changes triangle connectivity even at the same vertex count.
     Liquid->CreateMeshSection_LinearColor(0,M.P,M.T,M.N,M.UV,M.HeightUV,{}, {},M.C,{},false);

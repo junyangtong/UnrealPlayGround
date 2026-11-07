@@ -5,8 +5,8 @@ root=Path(unreal.Paths.project_dir())
 builder=(root/'Plugins/Bartending/Scripts/create_bartending_demo.py').read_text(encoding='utf-8')
 # Rebuild only the liquid graph; do not reconstruct scene actors or lighting.
 exec(builder[:builder.index("for name,is_ice")])
-liquid.set_editor_property('two_sided',False); save(liquid)
-for name,side,strength in [('M_Glass',1,.32),('M_GlassBack',-1,.08)]:
+liquid.set_editor_property('two_sided',True); liquid.set_editor_property('blend_mode',unreal.BlendMode.BLEND_OPAQUE); save(liquid)
+for name,side,strength in [('M_Glass',1,.12),('M_GlassBack',-1,.02)]:
     m=mat(name,True); m.set_editor_property('two_sided',False)
     inp=[('N',node(m,unreal.MaterialExpressionPixelNormalWS)),('V',node(m,unreal.MaterialExpressionCameraVectorWS)),('World',node(m,unreal.MaterialExpressionWorldPosition)),('Center',node(m,unreal.MaterialExpressionObjectPositionWS)),('Env',tex(m,'Environment',ROOT+'/Textures/BarEnv_00')),('Side',scalar(m,'SurfaceSide',side)),('Strength',scalar(m,'ReflectionStrength',strength))]
     rgba(m,custom(m,'''float3 n=normalize(N),v=normalize(V);
