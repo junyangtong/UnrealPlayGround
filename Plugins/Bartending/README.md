@@ -23,4 +23,6 @@
 
 自动化测试：`Automation RunTests Bartending.Recipe`。
 
-当前浓色展示材质使用不透明深度写入；配方 Alpha 暂不参与最终透明合成。液面采用环形网格实现贴壁抬升和渐变法线。
+液体已恢复透明混合；配方 Alpha 结合观察方向的光学厚度控制透射，杯壁按菲涅耳反射混合。液面采用环形网格实现贴壁抬升和渐变法线。
+
+Opacity 必须只选择 A 通道；`Bartending.Materials.AlphaChannels` 检查液体、杯壁和冰块的透明接线。

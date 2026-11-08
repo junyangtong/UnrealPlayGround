@@ -31,13 +31,13 @@ def rgba(m,a):
     b=node(m,unreal.MaterialExpressionComponentMask)
     for c in ['r','g','b']: b.set_editor_property(c,True)
     connect(a,b); prop(b,unreal.MaterialProperty.MP_EMISSIVE_COLOR)
-    c=node(m,unreal.MaterialExpressionComponentMask); c.set_editor_property('r',False); c.set_editor_property('a',True); connect(a,c); prop(c,unreal.MaterialProperty.MP_OPACITY)
+    c=node(m,unreal.MaterialExpressionComponentMask); c.set_editor_property('r',False); c.set_editor_property('g',False); c.set_editor_property('b',False); c.set_editor_property('a',True); connect(a,c); prop(c,unreal.MaterialProperty.MP_OPACITY)
 def save(m):
     LIB.layout_material_expressions(m); LIB.recompile_material(m); EA.save_loaded_asset(m); return m
 
 liquid=mat('M_LayeredLiquid',True)
 height=node(liquid,unreal.MaterialExpressionTextureCoordinate); height.set_editor_property('coordinate_index',1)
-inputs=[('UV',node(liquid,unreal.MaterialExpressionTextureCoordinate)),('HeightUV',height),('Normal',node(liquid,unreal.MaterialExpressionPixelNormalWS)),('View',node(liquid,unreal.MaterialExpressionCameraVectorWS))]
+inputs=[('UV',node(liquid,unreal.MaterialExpressionTextureCoordinate)),('HeightUV',height),('Normal',node(liquid,unreal.MaterialExpressionPixelNormalWS)),('View',node(liquid,unreal.MaterialExpressionCameraVectorWS)),('World',node(liquid,unreal.MaterialExpressionWorldPosition)),('Center',node(liquid,unreal.MaterialExpressionObjectPositionWS))]
 for n,v in [('Fill',1),('LayerCount',5),('Clock',0),('Swirl',0)]: inputs.append((n,scalar(liquid,n,v)))
 for i in range(5):
     inputs.extend([(f'Weight{i}',vector(liquid,f'Weight{i}',tuple(1 if i==j else 0 for j in range(4)))),(f'Tail{i}',scalar(liquid,f'Tail{i}',1 if i==4 else 0)),(f'Color{i}',vector(liquid,f'Color{i}',(.5,.1,.3,.8))),(f'Detail{i}',vector(liquid,f'Detail{i}',(.3,0,0,0))),(f'Mask{i}',tex(liquid,f'Mask{i}','/Engine/EngineResources/Black'))])

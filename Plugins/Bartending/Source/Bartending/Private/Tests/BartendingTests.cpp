@@ -1,5 +1,7 @@
 #include "BartendingDemo.h"
 #include "Engine/World.h"
+#include "Materials/Material.h"
+#include "Materials/MaterialExpressionComponentMask.h"
 #include "Engine/StaticMesh.h"
 #include "ProceduralMeshComponent.h"
 #include "Misc/AutomationTest.h"
@@ -68,4 +70,26 @@ bool FOriginalCocktailMeshTest::RunTest(const FString& Parameters)
     World->DestroyWorld(false);
     return true;
 }
+
+#if WITH_EDITOR
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FMaterialAlphaTest, "Bartending.Materials.AlphaChannels",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FMaterialAlphaTest::RunTest(const FString& Parameters)
+{
+    for (const TCHAR* Name : {TEXT("M_LayeredLiquid"),TEXT("M_Glass"),TEXT("M_GlassBack"),TEXT("M_Ice"),TEXT("M_IceSubmerged")})
+    {
+        UMaterial* M=LoadObject<UMaterial>(nullptr,*FString::Printf(TEXT("/Game/Demos/Bartending/Materials/%s.%s"),Name,Name));
+        if (!TestNotNull(Name,M)) continue;
+        TestEqual(TEXT("Liquid and glass use transmissive blending"),M->BlendMode,BLEND_Translucent);
+        auto* Alpha=Cast<UMaterialExpressionComponentMask>(M->GetEditorOnlyData()->Opacity.Expression);
+        if (TestNotNull(TEXT("Opacity has an explicit channel mask"),Alpha))
+        {
+            TestTrue(TEXT("Opacity selects Alpha"),Alpha->A);
+            TestFalse(TEXT("Color channels must never drive opacity"),Alpha->R || Alpha->G || Alpha->B);
+        }
+    }
+    return true;
+}
+#endif
+
 #endif

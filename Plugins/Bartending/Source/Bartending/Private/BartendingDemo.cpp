@@ -337,7 +337,7 @@ void ABartendingDemo::UpdateOriginalLiquidMesh()
         }
         if (Clipped.Num()<3) continue;
         const int32 First=M.P.Num();
-        for (const auto& V:Clipped) M.Vertex(V.P+FVector(0,0,CupBase),V.N,V.UV);
+        for (const auto& V:Clipped) { M.Vertex(V.P+FVector(0,0,CupBase),V.N,V.UV); M.HeightUV.Last().Y=0.f; }
         for (int32 K=1;K+1<Clipped.Num();++K) M.T.Append({First,First+K,First+K+1});
     }
     Rim.Sort([](const FVector& A,const FVector& B){return FMath::Atan2(A.Y,A.X)<FMath::Atan2(B.Y,B.X);});

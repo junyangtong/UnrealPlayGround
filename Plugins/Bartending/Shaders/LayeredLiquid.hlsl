@@ -17,9 +17,11 @@ float4 col=lerp(colors[lo],colors[hi],t);
 float mask=lerp(mixed[lo],mixed[hi],t);
 float bubbles=lerp(detail[lo].y,detail[hi].y,t);
 float3 n=normalize(Normal),v=normalize(View);
-float facing=saturate(abs(dot(n,v))),edge=pow(1-facing,3);
+float3 radial=normalize(float3(World.xy-Center.xy,0));
+float facing=saturate(dot(radial,v)),edge=pow(1-facing,3);
+float front=smoothstep(-.015,.015,dot(radial,v));
 // FBX islands cover a small atlas area: increase repeat to retain fine bubble detail.
-float2 buv=uv*float2(2,4)+float2(0,-Clock*.025);
+float2 buv=float2((atan2(radial.y,radial.x)/6.2831853+.5)*4+Swirl,HeightUV.x*2-Clock*.035);
 float b0=Texture2DSample(BubbleTex,BubbleTexSampler,buv+View.xy*.05).r;
 float b1=Texture2DSample(BubbleTex,BubbleTexSampler,buv*1.37+View.xy*.09+float2(.13,Clock*.008)).r;
 float top=saturate(HeightUV.y); if(top>.5 && n.z<0) n=-n;
@@ -36,4 +38,7 @@ surface+=pow(saturate(dot(n,halfDir)),96)*.18;
 surface+=contact*float3(.13,.16,.16);
 rgb=lerp(rgb,surface,top);
 rgb+=waterline*col.rgb*.10;
-return float4(rgb,saturate(col.a+edge*.08+waterline*.08));
+// Optical thickness increases toward the center. Back wall is not composited twice.
+float opacity=1-exp(-max(.05,col.a)*(.4+2.2*facing));
+opacity=lerp(opacity*front,saturate(col.a*.55+.18),top);
+return float4(rgb,saturate(opacity+waterline*.06));
