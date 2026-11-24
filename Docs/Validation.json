@@ -15,5 +15,5 @@
     "/Game/Demos/WFC/Town/L_TownPrototype"
   ],
   "invalid_dependencies": [],
-  "opacity_regression": "All liquid, glass and ice opacity masks select Alpha only"
+  "opacity_regression": "Liquid and glass opacity use alpha only. Ice writes opaque scene depth."
 }

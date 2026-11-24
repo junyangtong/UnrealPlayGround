@@ -76,7 +76,10 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FMaterialAlphaTest, "Bartending.Materials.Alpha
     EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
 bool FMaterialAlphaTest::RunTest(const FString& Parameters)
 {
-    for (const TCHAR* Name : {TEXT("M_LayeredLiquid"),TEXT("M_Glass"),TEXT("M_GlassBack"),TEXT("M_Ice"),TEXT("M_IceSubmerged")})
+    UMaterial* Ice = LoadObject<UMaterial>(nullptr, TEXT("/Game/Demos/Bartending/Materials/M_Ice.M_Ice"));
+    if (TestNotNull(TEXT("Original ice material"), Ice))
+        TestEqual(TEXT("Ice writes scene depth before the drink is composited"), Ice->BlendMode, BLEND_Opaque);
+    for (const TCHAR* Name : {TEXT("M_LayeredLiquid"),TEXT("M_Glass"),TEXT("M_GlassBack")})
     {
         UMaterial* M=LoadObject<UMaterial>(nullptr,*FString::Printf(TEXT("/Game/Demos/Bartending/Materials/%s.%s"),Name,Name));
         if (!TestNotNull(Name,M)) continue;

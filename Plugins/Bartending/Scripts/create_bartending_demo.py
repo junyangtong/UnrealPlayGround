@@ -38,6 +38,9 @@ def save(m):
 liquid=mat('M_LayeredLiquid',True)
 height=node(liquid,unreal.MaterialExpressionTextureCoordinate); height.set_editor_property('coordinate_index',1)
 inputs=[('UV',node(liquid,unreal.MaterialExpressionTextureCoordinate)),('HeightUV',height),('Normal',node(liquid,unreal.MaterialExpressionPixelNormalWS)),('View',node(liquid,unreal.MaterialExpressionCameraVectorWS)),('World',node(liquid,unreal.MaterialExpressionWorldPosition)),('Center',node(liquid,unreal.MaterialExpressionObjectPositionWS))]
+inputs.extend([('OpaqueDepth',node(liquid,unreal.MaterialExpressionSceneDepth)),
+               ('LiquidDepth',node(liquid,unreal.MaterialExpressionPixelDepth)),
+               ('Behind',node(liquid,unreal.MaterialExpressionSceneColor))])
 for n,v in [('Fill',1),('LayerCount',5),('Clock',0),('Swirl',0)]: inputs.append((n,scalar(liquid,n,v)))
 for i in range(5):
     inputs.extend([(f'Weight{i}',vector(liquid,f'Weight{i}',tuple(1 if i==j else 0 for j in range(4)))),(f'Tail{i}',scalar(liquid,f'Tail{i}',1 if i==4 else 0)),(f'Color{i}',vector(liquid,f'Color{i}',(.5,.1,.3,.8))),(f'Detail{i}',vector(liquid,f'Detail{i}',(.3,0,0,0))),(f'Mask{i}',tex(liquid,f'Mask{i}','/Engine/EngineResources/Black'))])

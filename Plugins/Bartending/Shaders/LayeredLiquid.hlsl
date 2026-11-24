@@ -17,7 +17,8 @@ float4 col=lerp(colors[lo],colors[hi],t);
 float mask=lerp(mixed[lo],mixed[hi],t);
 float bubbles=lerp(detail[lo].y,detail[hi].y,t);
 float3 n=normalize(Normal),v=normalize(View);
-float3 radial=normalize(float3(World.xy-Center.xy,0));
+float2 xy=World.xy-Center.xy;
+float3 radial=float3(xy/max(length(xy),.001),0);
 float facing=saturate(dot(radial,v)),edge=pow(1-facing,3);
 float front=smoothstep(-.015,.015,dot(radial,v));
 // FBX islands cover a small atlas area: increase repeat to retain fine bubble detail.
@@ -38,7 +39,16 @@ surface+=pow(saturate(dot(n,halfDir)),96)*.18;
 surface+=contact*float3(.13,.16,.16);
 rgb=lerp(rgb,surface,top);
 rgb+=waterline*col.rgb*.10;
-// Optical thickness increases toward the center. Back wall is not composited twice.
-float opacity=1-exp(-max(.05,col.a)*(.4+2.2*facing));
-opacity=lerp(opacity*front,saturate(col.a*.55+.18),top);
-return float4(rgb,saturate(opacity+waterline*.06));
+// A submerged cube shortens the view ray through the drink.
+float chord=190*facing;
+float travel=min(chord,max(0,OpaqueDepth-LiquidDepth));
+// Wavelength-dependent transmission preserves the hue over the bright counter.
+// The neutral component passes through the framebuffer blend. The excess
+// transmission in each color channel comes from the opaque scene behind it.
+float3 absorb=lerp(float3(2.9,2.9,2.9),float3(.42,.42,.42),sqrt(saturate(col.rgb)));
+float3 trans=exp(-absorb*col.a*(.16+.010*travel));
+float neutral=min(trans.r,min(trans.g,trans.b));
+float bodyOpacity=1-neutral;
+float3 body=((1-trans)*rgb+(trans-neutral)*Behind.rgb)/max(bodyOpacity,.001);
+float surfaceOpacity=lerp(.27,.66,surfaceFresnel)+contact*.08;
+return float4(lerp(body,rgb,top),saturate(lerp(bodyOpacity*front,surfaceOpacity,top)));

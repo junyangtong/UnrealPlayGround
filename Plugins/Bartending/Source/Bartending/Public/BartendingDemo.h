@@ -46,7 +46,6 @@ public:
     UPROPERTY(EditAnywhere, Category="Materials") TObjectPtr<UMaterialInterface> GlassMaterial;
     UPROPERTY(EditAnywhere, Category="Materials") TObjectPtr<UMaterialInterface> BackGlassMaterial;
     UPROPERTY(EditAnywhere, Category="Materials") TObjectPtr<UMaterialInterface> InvisibleMaterial;
-    UPROPERTY(EditAnywhere, Category="Materials") TObjectPtr<UMaterialInterface> SubmergedIceMaterial;
     UPROPERTY(EditAnywhere, Category="Materials") TObjectPtr<UMaterialInterface> IceMaterial;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="State") TArray<FCocktailLayer> LiquidLayers;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="State") float Fill = 0.f;
@@ -62,14 +61,12 @@ protected:
 private:
     UPROPERTY() TObjectPtr<UStaticMeshComponent> ImportedCup;
     UPROPERTY() TObjectPtr<UStaticMeshComponent> BackCup;
-    UPROPERTY() TArray<TObjectPtr<UStaticMeshComponent>> SubmergedIce;
     UPROPERTY() TObjectPtr<UProceduralMeshComponent> Liquid;
     UPROPERTY() TObjectPtr<UProceduralMeshComponent> Glass;
     UPROPERTY() TArray<TObjectPtr<UStaticMeshComponent>> Ice;
     UPROPERTY() TObjectPtr<UCameraComponent> Camera;
     UPROPERTY(Transient) TObjectPtr<UMaterialInstanceDynamic> LiquidMID;
     UPROPERTY(Transient) TObjectPtr<UMaterialInstanceDynamic> IceMID;
-    UPROPERTY(Transient) TObjectPtr<UMaterialInstanceDynamic> SubmergedIceMID;
     UPROPERTY(Transient) TArray<FCocktailLayer> StirStart;
     UPROPERTY() TObjectPtr<UTexture2D> BlackTexture;
     float Time = 0.f, Elapsed = 0.f, StartFill = 0.f, WaveAmplitude = 0.f, MaskMix = 0.f;

@@ -70,14 +70,7 @@ ABartendingDemo::ABartendingDemo()
         Mesh->SetRelativeScale3D(FVector(0.17f));
         Mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
         Mesh->SetCastShadow(false);
-        Mesh->SetTranslucentSortPriority(15);
         Ice.Add(Mesh);
-        auto* Under = CreateDefaultSubobject<UStaticMeshComponent>(*FString::Printf(TEXT("SubmergedIce%d"), I));
-        Under->SetupAttachment(RootComponent);
-        Under->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-        Under->SetCastShadow(false);
-        Under->SetTranslucentSortPriority(5);
-        SubmergedIce.Add(Under);
     }
     Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("DemoCamera"));
     Camera->SetupAttachment(RootComponent);
@@ -102,7 +95,6 @@ void ABartendingDemo::InitializeDrink(int32 Count)
     LiquidMID = LiquidMaterial ? UMaterialInstanceDynamic::Create(LiquidMaterial, this) : nullptr;
     Liquid->SetMaterial(0, LiquidMID);
     Glass->SetMaterial(0, GlassMaterial);
-    SubmergedIceMID = SubmergedIceMaterial ? UMaterialInstanceDynamic::Create(SubmergedIceMaterial,this) : nullptr;
     IceMID = IceMaterial ? UMaterialInstanceDynamic::Create(IceMaterial,this) : nullptr;
     for (int32 I = 0; I < Ice.Num(); ++I)
     { Ice[I]->SetMaterial(0, IceMID); IceZ[I] = CupBase + FMath::Max(9.f, Fill * Height - 3.f); IceVelocity[I] = 0; }
@@ -122,12 +114,6 @@ void ABartendingDemo::InitializeDrink(int32 Count)
     ImportedCup->SetVisibility(CupSourceMesh!=nullptr);
     Glass->SetVisibility(CupSourceMesh==nullptr);
     if (IceSourceMesh) for (const auto& Mesh : Ice) { Mesh->SetStaticMesh(IceSourceMesh); Mesh->SetRelativeScale3D(FVector(.6f)); }
-    for (const auto& Under : SubmergedIce)
-    {
-        Under->SetStaticMesh(IceSourceMesh);
-        Under->SetRelativeScale3D(FVector(.6f));
-        Under->SetMaterial(0,SubmergedIceMID);
-    }
     BuildGlass(); UpdateMaterials(); UpdateLiquidMesh(); UpdateIce(0);
 }
 void ABartendingDemo::OnConstruction(const FTransform& Transform)
@@ -212,7 +198,7 @@ float ABartendingDemo::Wave(float X, float Y) const
 }
 void ABartendingDemo::UpdateMaterials()
 {
-    if (SubmergedIceMID) SubmergedIceMID->SetScalarParameterValue(TEXT("LiquidSurface"),GetActorTransform().TransformPosition(FVector(0,0,CupBase+Fill*Height)).Z);
+    if (IceMID && !LiquidLayers.IsEmpty()) IceMID->SetVectorParameterValue(TEXT("DrinkColor"), LiquidLayers.Last().Color);
     if (IceMID) IceMID->SetScalarParameterValue(TEXT("LiquidSurface"),GetActorTransform().TransformPosition(FVector(0,0,CupBase+Fill*Height)).Z);
     if (!LiquidMID) return;
     LiquidMID->SetScalarParameterValue(TEXT("LayerCount"), LiquidLayers.Num());
@@ -299,8 +285,6 @@ void ABartendingDemo::UpdateIce(float Dt)
         Ice[I]->SetVisibility(bShowIce);
         Ice[I]->SetRelativeLocation(FVector(X,Y,IceZ[I]));
         Ice[I]->SetRelativeRotation(FRotator(8.f*FMath::Sin(Time+I),I*37.f,6.f*FMath::Cos(Time*1.3f+I)));
-        SubmergedIce[I]->SetRelativeTransform(Ice[I]->GetRelativeTransform());
-        SubmergedIce[I]->SetVisibility(bShowIce && SubmergedIceMaterial!=nullptr);
     }
 }
 
